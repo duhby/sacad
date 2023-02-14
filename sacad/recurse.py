@@ -110,7 +110,8 @@ def get_file_metadata(audio_filepath):
         except ValueError:
             val = None
         if val is not None:
-            artist = val[-1]
+            # use the first artist if there are multiple
+            artist = val[-1].split(", ")[0].strip()
             break
     else:
         return
